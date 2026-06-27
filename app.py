@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 
+api_key = st.secrets["GEMINI_API_KEY"]
 st.set_page_config(page_title="SafeFolio AI", layout="wide", page_icon="🛡️")
 
 # ──────────────────────────────────────────────
