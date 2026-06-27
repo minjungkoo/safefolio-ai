@@ -186,7 +186,7 @@ with col2:
     import google.generativeai as genai
 
     genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-    model = genai.GenerativeModel("gemini-1.5-flash")
+    model = genai.GenerativeModel("gemini-2.0-flash")
 
     # ── Dynamic Prompting: 슬라이더 값을 시스템 프롬프트에 주입 ──
     # (col1에서 계산된 변수들을 그대로 활용)
