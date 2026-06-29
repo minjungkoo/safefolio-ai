@@ -434,7 +434,7 @@ def get_gemini_portfolio_explanation(profile, portfolio_key):
     try:
         import google.generativeai as genai
         genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-        model = genai.GenerativeModel("gemini-1.5-flash-latest")
+        model = genai.GenerativeModel("gemini-2.5-flash")
 
         p = PORTFOLIOS[portfolio_key]
         assets_str = ", ".join([f"{a['name']} {a['ratio']}%" for a in p["assets"]])
@@ -476,7 +476,7 @@ def get_gemini_chat_response(messages, profile, split_result, selected_portfolio
 
         # 도구(Tools)를 쥐여주어 에이전트로 동작하게 만듦
         model = genai.GenerativeModel(
-            model_name="gemini-1.5-flash-latest",
+            model_name="gemini-2.5-flash",
             tools=[get_macro_indicators, search_fed_policy]
         )
 
