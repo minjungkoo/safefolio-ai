@@ -388,7 +388,7 @@ def search_fed_policy(query: str = "") -> dict:
 
         tools = [{"google_search": {}}]
         model = genai.GenerativeModel(
-            model_name="gemini-1.5-flash-latest",
+            model_name="gemini-2.5-flash",
             tools=tools,
         )
         search_q = query if query else (
@@ -658,7 +658,7 @@ def _call_gemini_agent(user_message, profile, split_result,
     try:
         import google.generativeai as genai
         genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-        model = genai.GenerativeModel("gemini-1.5-flash-latest")
+        model = genai.GenerativeModel("gemini-2.5-flash")
 
         alloc     = split_result.get("allocations", {})
         alloc_str = "\n".join([f"  - {k}: {fmt(v)}" for k, v in alloc.items()])
@@ -733,7 +733,7 @@ def generate_proactive_briefing(macro_data: dict) -> dict:
     try:
         import google.generativeai as genai
         genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-        model = genai.GenerativeModel("gemini-1.5-flash-latest")
+        model = genai.GenerativeModel("gemini-2.5-flash")
 
         inds      = macro_data.get("indicators", {})
         risk_lv   = macro_data.get("risk_level", "green")
@@ -980,7 +980,7 @@ def get_gemini_portfolio_explanation(profile, portfolio_key):
     try:
         import google.generativeai as genai
         genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-        model = genai.GenerativeModel("gemini-1.5-flash-latest")
+        model = genai.GenerativeModel("gemini-2.5-flash")
         p = PORTFOLIOS[portfolio_key]
         assets_str = ", ".join([f"{a['name']} {a['ratio']}%" for a in p["assets"]])
         diff_points = {
