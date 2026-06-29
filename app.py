@@ -288,7 +288,7 @@ def get_gemini_chat_response(messages: list, profile: dict, split_result: dict, 
     try:
         import google.generativeai as genai
         genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-        model = genai.GenerativeModel("gemini-1.5-flash-latest")
+        model = genai.GenerativeModel("gemini-2.0-flash")
 
         alloc = split_result.get("allocations", {})
         alloc_str = "\n".join([f"  - {k}: {fmt(v)}" for k, v in alloc.items()])
