@@ -246,7 +246,7 @@ def get_gemini_portfolio_explanation(profile: dict, portfolio_key: str) -> dict:
     try:
         import google.generativeai as genai
         genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
-        model = genai.GenerativeModel("gemini-1.5-flash-latest")
+        model = genai.GenerativeModel("gemini-2.0-flash")
 
         p = PORTFOLIOS[portfolio_key]
         assets_str = ", ".join([f"{a['name']} {a['ratio']}%" for a in p["assets"]])
